@@ -1,0 +1,50 @@
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+DROP TABLE IF EXISTS `empleado`;
+CREATE TABLE `empleado` (
+  `id_empleado` int(11) NOT NULL AUTO_INCREMENT,
+  `apellido` varchar(60) NOT NULL,
+  `nombre` varchar(60) NOT NULL,
+  `fecha_nacimiento` varchar(20) DEFAULT NULL,
+  `estado` varchar(8) NOT NULL,
+  `fecha_ingreso` varchar(20) DEFAULT NULL,
+  `fecha_egreso` varchar(20) DEFAULT NULL,
+  `rol` varchar(60) DEFAULT NULL,
+  `email` varchar(60) DEFAULT NULL,
+  `telefono_familiar` varchar(200) DEFAULT NULL,
+  `telefono_personal` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id_empleado`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+DROP TABLE IF EXISTS `EMPLEADO_CP`;
+CREATE TABLE `EMPLEADO_CP` (
+  `id_empleado` int(11) NOT NULL AUTO_INCREMENT,
+  `apellido` varchar(60) NOT NULL,
+  `nombre` varchar(60) NOT NULL,
+  `fecha_nacimiento` varchar(20) DEFAULT NULL,
+  `estado` varchar(8) NOT NULL,
+  `fecha_ingreso` varchar(20) DEFAULT NULL,
+  `fecha_egreso` varchar(20) DEFAULT NULL,
+  `rol` varchar(60) DEFAULT NULL,
+  `email` varchar(60) DEFAULT NULL,
+  `telefono_familiar` varchar(200) DEFAULT NULL,
+  `telefono_personal` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id_empleado`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;

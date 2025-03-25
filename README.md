@@ -61,7 +61,7 @@ docker-compose up -d
 
 | Servicio     | URL                        | Usuario    | Contraseña |
 |--------------|----------------------------|------------|-------------|
-| Tomcat       | http://localhost:9090      | admin      | admin        |
+| Tomcat       | http://localhost:9090/manager      | admin      | admin        |
 | phpMyAdmin   | http://localhost:8082      | 7idapp     | 7id424      |
 
 > Servidor para phpMyAdmin: `mariadb_container`
