@@ -20,9 +20,7 @@ services:
     restart: always
     ports:
       - "9090:8080"
-    volumes:
-      - ./tomcat/conf:/usr/local/tomcat/conf
-      - ./tomcat/webapps/manager/META-INF/context.xml:/usr/local/tomcat/webapps/manager/META-INF/context.xml
+    # Ya no es necesario mapear los archivos de configuración si los copias en el Dockerfile
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin

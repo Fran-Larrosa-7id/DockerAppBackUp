@@ -1,4 +1,4 @@
-# 🐳 Docker App: MariaDB + Tomcat + phpMyAdmin
+# 📣 Docker App: MariaDB + Tomcat + phpMyAdmin
 
 Este proyecto dockeriza una aplicación compuesta por:
 
@@ -24,16 +24,15 @@ docker-app/
 │   └── 02-datos.sql        # Datos iniciales
 ├── tomcat/
 │   ├── Dockerfile          # Construcción personalizada de Tomcat con Java 23
-│   ├── conf/               # Configuraciones del Tomcat (ej: tomcat-users.xml, server.xml)
-│   ├── static/             # Archivos estáticos si los hubiera
-│   └── webapps/            # Aplicaciones (WAR, ROOT, etc.)
+│   ├── context.xml         # Configuración de acceso remoto al manager
+│   ├── tomcat-users.xml    # Usuario para acceder al manager
 ```
 
 ---
 
 ## 🛠️ Requisitos
 
-- Docker 🐳
+- Docker 📣
 - Docker Compose
 
 ---
@@ -43,26 +42,26 @@ docker-app/
 1. Clona el proyecto:
 
 ```bash
-https://github.com/Fran-Larrosa-7id/DockerAppBackUp.git
+git clone https://github.com/Fran-Larrosa-7id/DockerAppBackUp.git
 cd docker-app
 ```
 
 2. Levanta los contenedores:
 
 ```bash
-docker-compose up -d
+docker-compose up --build -d
 ```
 
-> Esto construirá Tomcat, iniciará MariaDB, cargará la base de datos y dejará todo funcionando.
+> Esto construirá Tomcat con Java 23, iniciará MariaDB, cargará la base de datos y dejará todo funcionando.
 
 ---
 
 ## 🌐 Accesos útiles
 
-| Servicio     | URL                        | Usuario    | Contraseña |
-|--------------|----------------------------|------------|-------------|
-| Tomcat       | http://localhost:9090/manager      | admin      | admin        |
-| phpMyAdmin   | http://localhost:8082      | 7idapp     | 7id424      |
+| Servicio     | URL                           | Usuario    | Contraseña |
+|--------------|-------------------------------|------------|-------------|
+| Tomcat       | http://localhost:9090/manager/html | admin      | admin       |
+| phpMyAdmin   | http://localhost:8082         | 7idapp     | 7id424      |
 
 > Servidor para phpMyAdmin: `mariadb_container`
 
@@ -74,8 +73,16 @@ Si querés reinicializar la base con los archivos `.sql`:
 
 ```bash
 docker-compose down -v
-docker-compose up -d
+docker-compose up --build -d
 ```
+
+---
+
+## 🧐 Notas
+
+- El contenedor de Tomcat se basa en Java 23 (`eclipse-temurin:23-jdk`) y descarga automáticamente Tomcat 11.0.2.
+- Los archivos `context.xml` y `tomcat-users.xml` están preconfigurados para permitir acceso remoto y login al Manager.
+- Los `.sql` se ejecutan automáticamente en orden (por el prefijo `01-`, `02-`...).
 
 ---
 
@@ -89,13 +96,6 @@ zip -r docker-app-backup.zip docker-app/
 
 ---
 
-## 🧠 Notas
+## 🡩‍💻 Autor
 
-- El contenedor de Tomcat está basado en la versión 11.0.2 y Java 23.
-- La base de datos se crea desde cero con cada nueva instalación, usando los `.sql` montados en `mysql-init`.
-
----
-
-## 🧑‍💻 Autor
-
-Desarrollado por Francisco Larrosa
+Desarrollado por Francisco Larrosa ✨
