@@ -42,7 +42,7 @@ docker-app/
 1. Clona el proyecto:
 
 ```bash
-git clone https://github.com/Fran-Larrosa-7id/DockerAppBackUp.git
+git clone https://github.com/Siete-Ideas/docker-7id.git
 cd docker-app
 ```
 
